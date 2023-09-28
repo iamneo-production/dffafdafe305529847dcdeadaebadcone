@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { HotelDetailComponent } from './hotel-detail/hotel-detail.component';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HotelListComponent } from './hotel-list/hotel-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
