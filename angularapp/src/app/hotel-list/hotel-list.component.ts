@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HotelService } from '../hotel.service';
 
 @Component({
   selector: 'app-hotel-list',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelListComponent implements OnInit {
 
-  constructor() { }
+  hotels!: any[];
+  filteredHotels!: any[];
+  searchText: string = '';
 
-  ngOnInit(): void {
+  constructor(private hotelService: HotelService) {}
+
+  ngOnInit() {
+    this.hotels = this.hotelService.getAllHotels();
+    this.filteredHotels = [...this.hotels];
+  }
+
+  searchHotels() {
+    this.filteredHotels = this.hotels.filter(hotel =>
+      hotel.name.toLowerCase().includes(this.searchText.toLowerCase())
+    );
   }
 
 }
